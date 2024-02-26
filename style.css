@@ -13,10 +13,11 @@ body {
   }
 
   #content {
-    margin-top: 300px;
+    margin-top: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   table {
@@ -52,3 +53,29 @@ body {
   table tr td:last-child {
     border-right: 0;
   }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mt-56 {
+    margin-top: 56px;
+  }
+
+  button {
+    width: 160px;
+    height: 50px;
+    background-color: #4CAF50; 
+    color: white; 
+    font-size: 20px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+button:hover {
+    background-color: #63c568; 
+}
