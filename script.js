@@ -1,14 +1,16 @@
 let fields = [
     null,
-    'circle',
     null,
-    'cross',
-    'circle',
+    null,
+    null,
+    null,
     null,
     null,
     null,
     null,
 ];
+
+let currentPlayer = 'circle';
 
 function init() {
     render();
@@ -20,14 +22,23 @@ function render() {
         tableHTML += '<tr>';
         for (let j = 0; j < 3; j++) {
             const index = i * 3 + j;
-            const symbol = fields[index] === 'circle' ? generateCircleSVG() : (fields[index] === 'cross' ? generateCrossSVG() : '');
-            tableHTML += `<td>${symbol}</td>`;
+            tableHTML += `<td id="cell-${index}" onclick="handleClick(${index})"></td>`;
         }
         tableHTML += '</tr>';
     }
     tableHTML += '</table>';
     document.getElementById('content').innerHTML = tableHTML;
 }
+
+function handleClick(index) {
+    if (!fields[index]) {
+        fields[index] = currentPlayer;
+        document.getElementById(`cell-${index}`).innerHTML = currentPlayer === 'circle' ? generateCircleSVG() : generateCrossSVG();
+        currentPlayer = currentPlayer === 'circle' ? 'cross' : 'circle';
+    }
+}
+
+init();
 
 function generateCircleSVG() {
     const fillColor = '#00B0F0';
